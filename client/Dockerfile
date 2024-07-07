@@ -5,16 +5,16 @@ FROM node:20-alpine
 WORKDIR /app
 
 # Copy the project files to the container
-COPY . .
+COPY . /app
 
 # Install dependencies
-RUN npm install
+RUN npm install -g @angular/cli
 
 # Build the Angular app
-RUN npm run build
+RUN npm install
 
 # Expose the necessary ports
 EXPOSE 4200
 
 # Define the command to run the application
-CMD ["npm", "start"]
+CMD ["ng", "serve", "--host", "0.0.0.0"]

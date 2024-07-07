@@ -21,6 +21,7 @@ public class CardController : ControllerBase
     public async Task<IActionResult> GetAllAsync()
     {
         var cards = await _cardService.GetAllAsync();
+        Console.WriteLine("BOB");
         return Ok(_mapper.Map<List<CardDTO>>(cards));   
     }
 
